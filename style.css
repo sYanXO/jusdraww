@@ -1,0 +1,51 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    overflow: hidden;
+    font-size: 20px;
+}
+
+#draw{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+#menu{
+    position: absolute;
+    width: 50%;
+    
+    bottom: 0;
+    height: 2.5em;
+    margin-left: 25%;
+}
+.menubutton{
+    height: 100%;
+    width: 8%;
+    border: none;
+}
+.red{
+    background-color: red;
+}
+.white{
+    background-color: white;
+}
+.blue{
+    background-color: blue;
+}
+#resetBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
