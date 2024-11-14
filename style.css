@@ -59,6 +59,19 @@ body {
 .menubutton.red { background-color: red; }
 .menubutton.white { background-color: white; }
 .menubutton.blue { background-color: blue; }
+.menubutton.eraser {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.menubutton.eraser.active {
+    background-color: #666;
+    color: white;
+    box-shadow: 0 0 0 2px white;
+}
 
 .menuButton.plusMinus {
     background: rgba(255, 255, 255, 0.1);

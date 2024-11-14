@@ -27,12 +27,32 @@ function decreaseSize() {
     }
 }
 
-function changeColor(color) {
-    currentColor = color;
-    ctx.strokeStyle = color;
-    if (color === 'white') {  // For eraser
-        ctx.lineWidth = strokeSize * 2;  // Make eraser 2x thicker
+let isEraser = false;
+
+function setEraser() {
+    isEraser = !isEraser;  // Toggle eraser state
+    const eraserBtn = document.querySelector('.menubutton.eraser');
+    
+    if (isEraser) {
+        eraserBtn.classList.add('active');
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.strokeStyle = 'rgba(0,0,0,1)';
+        ctx.lineWidth = strokeSize * 2;  // Make eraser thicker
     } else {
+        eraserBtn.classList.remove('active');
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.strokeStyle = currentColor;
         ctx.lineWidth = strokeSize;
     }
+}
+
+function changeColor(color) {
+    if (isEraser) {
+        // Turn off eraser when selecting a color
+        setEraser();
+    }
+    currentColor = color;
+    ctx.strokeStyle = color;
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.lineWidth = strokeSize;
 } 
