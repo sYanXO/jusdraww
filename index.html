@@ -9,7 +9,7 @@
 
         <script>
 			var paintColor = "white";
-			var strokeSize = 3;
+			var strokeSize = 10;
 
 			const changeColor = (color) => {
 				paintColor = color;
@@ -22,6 +22,7 @@
 
 			const decreaseSize = () => {
 				if (strokeSize < 2) {
+
 					return;
 				}
 				strokeSize--;
@@ -57,6 +58,7 @@
 				   		if (ev.srcEvent.shiftKey) {
 				   			// color matches background (essentially erase)
 				   			startDraw(ev, "black", strokeSize * 4, "destination-out");
+							
 				   		} else {
 				   			// draw
 				   			startDraw(ev);
@@ -104,17 +106,21 @@
         </script>
     </HEAD>
     <BODY>
-        <canvas id="draw">
-
-        </canvas>
-        <div id="menu">
-            <button class="menubutton red" onclick="changeColor('red')"></button>
-            <button class="menubutton white" onclick="changeColor('white')"></button>
-            <button class="menubutton blue" onclick="changeColor('blue')"></button>
-            <button class="menuButton plusMinus" onclick="increaseSize();">+</button>
-			<span class="menuButton" id="strokeSize">3</span>
-			<button class="menuButton plusMinus" onclick="decreaseSize();">-</button>
-            <button id="resetBtn" onclick="resetCanvas();">Reset</button>
+        <div class="container">
+            <canvas id="draw"></canvas>
+            <div id="menu">
+                <div class="color-controls">
+                    <button class="menubutton red" onclick="changeColor('red')" title="Red"></button>
+                    <button class="menubutton white" onclick="changeColor('white')" title="White"></button>
+                    <button class="menubutton blue" onclick="changeColor('blue')" title="Blue"></button>
+                </div>
+                <div class="size-controls">
+                    <button class="menuButton plusMinus" onclick="decreaseSize();">−</button>
+                    <span class="menuButton" id="strokeSize">10</span>
+                    <button class="menuButton plusMinus" onclick="increaseSize();">+</button>
+                </div>
+                <button id="resetBtn" onclick="resetCanvas();">Reset</button>
+            </div>
         </div>
     </BODY>
 </HTML>

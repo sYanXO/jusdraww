@@ -1,51 +1,101 @@
-html,body{
-    height: 100%;
-    width: 100%;
-    margin: 0px;
+body {
+    margin: 0;
+    padding: 0;
     overflow: hidden;
-    font-size: 20px;
+    background: #1a1a1a;
 }
 
-#draw{
-    height: 100%;
-    width: 100%;
-    background-color: black;
-}
-#menu{
+#draw {
     position: absolute;
-    width: 50%;
-    
-    bottom: 0;
-    height: 2.5em;
-    margin-left: 25%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    touch-action: none;
 }
-.menubutton{
-    height: 100%;
-    width: 8%;
-    border: none;
-}
-.red{
-    background-color: red;
-}
-.white{
-    background-color: white;
-}
-.blue{
-    background-color: blue;
-}
-#resetBtn {
+
+#menu {
     position: fixed;
     bottom: 20px;
-    right: 20px;
-    width: 80px;
-    height: 80px;
-    background-color: #444;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(40, 40, 40, 0.9);
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.color-controls, .size-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.color-controls {
+    padding-right: 15px;
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.menubutton {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menubutton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.menubutton.red { background-color: red; }
+.menubutton.white { background-color: white; }
+.menubutton.blue { background-color: blue; }
+
+.menuButton.plusMinus {
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     border: none;
-    border-radius: 40px;
-    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     cursor: pointer;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.menuButton.plusMinus:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#strokeSize {
+    color: white;
+    min-width: 20px;
+    text-align: center;
+}
+
+#resetBtn {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#resetBtn:hover {
+    background: #ff6666;
 }
